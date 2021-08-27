@@ -12,7 +12,7 @@ import uvProtectionIcon from './UV-Protection-Icon.png';
 class Benefits extends Component {
     render() {
         return (
-            <div>
+            <>
                 <Row className="no-gutters">
                     <Col>
                         <img
@@ -94,7 +94,7 @@ class Benefits extends Component {
                     </Col>
                     
                 </Row>
-            </div>
+            </>
         )
     }
 }
