@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
 
 import residentialImage from './Commercial_8.jpeg';
 import '../CommonHomeComponents.css';
@@ -13,7 +12,6 @@ class Residential extends Component {
             <div style={{ height: '10vh' }}></div>
             <div>
                 <img 
-                    // className="img-fluid float-left mr-4" 
                     className="image-float-residential mr-4"
                     src={residentialImage} 
                     width="40%"
