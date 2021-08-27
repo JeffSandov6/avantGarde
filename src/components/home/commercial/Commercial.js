@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
 
 import commercialImage from './Commercial_8.jpeg';
 import '../CommonHomeComponents.css';
