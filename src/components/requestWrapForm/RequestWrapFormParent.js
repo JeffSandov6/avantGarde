@@ -5,10 +5,14 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Row, Col } from 'reactstrap';
+
 
 import NameStep from './requestWrapFormSteps/NameStep';
 import RequestReasonStep from './requestWrapFormSteps/RequestReasonStep';
+import EmailPhoneStep from './requestWrapFormSteps/EmailPhoneStep';
 import AddressStep from './requestWrapFormSteps/AddressStep';
+import CommercialResidentialStep from './requestWrapFormSteps/CommercialResidentialStep';
 
 
 //TODO: add validation in each step
@@ -37,9 +41,13 @@ export default function RequestWrapFormParent() {
   const [requestReason, setRequestReason] = React.useState("");
   const [emailOrPhone, setEmailOrPhone] = React.useState("");
   const [address, setAddress] = React.useState("");
-  const [commercialOrResidential, setcommercialOrResidential] = React.useState("");
+  const [commercialOrResidential, setCommercialOrResidential] = React.useState("");
   
   const steps = getSteps();
+
+  function clearEmailOrPhoneState() {
+      setEmailOrPhone("");
+  }
 
   function getStepContent(step) {
     switch (step) {
@@ -48,17 +56,17 @@ export default function RequestWrapFormParent() {
       case 1:
         return <RequestReasonStep requestReason={requestReason} setRequestReason={setRequestReason}/>;
       case 2:
+        return <EmailPhoneStep emailOrPhone={emailOrPhone} setEmailOrPhone={setEmailOrPhone} clearEmailOrPhoneState={clearEmailOrPhoneState}/>;
+      case 3:
         return <AddressStep address={address} setAddress={setAddress}/>;
+      case 4:
+        return <CommercialResidentialStep commercialOrResidential={commercialOrResidential} setCommercialOrResidential={setCommercialOrResidential}/>;
       default:
         return 'Unknown step';
     }
   }
 
   const handleNext = () => {
-    // console.log("state is");
-    // console.log(name);
-    // console.log(requestReason);
-    // console.log(address);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -74,6 +82,9 @@ export default function RequestWrapFormParent() {
 
   return (
     <div className={classes.root}>
+        <Row className="justify-content-center">
+            <h1>Request a Wrap</h1>
+        </Row>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -88,8 +99,8 @@ export default function RequestWrapFormParent() {
         })}
       </Stepper>
 
-      {/* below div is for when all steps are done */}
       <div>
+          {/* below is whats shown when all steps are completed */}
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>

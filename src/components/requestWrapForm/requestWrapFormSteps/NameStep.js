@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, InputGroup, FormControl, Form, Button } from 'react-bootstrap';
+import { FormControl, Form } from 'react-bootstrap';
 
 
 class NameStep extends Component {
