@@ -12,6 +12,13 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
+import { Row, Col, Container } from 'reactstrap';
+
+import RequestWrapFormParent from './RequestWrapFormParent';
+import "./RequestWrapForm.css";
+
+//Question: do you want the top view that shows the step numbers anchored,
+//or do you not mind that it moves every time to center itself?
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -21,13 +28,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     flex: 1,
   },
+  dialogBackground: {
+      backgroundColor: 'black',
+  }
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function RequestWrapForm(props) {
+export default function RequestWrapFormDialog(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -36,31 +46,22 @@ export default function RequestWrapForm(props) {
   };
 
   return (
-    <div>
-      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Sound
-            </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
-              save
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <List>
-          <ListItem button>
-            <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItem>
-          <Divider />
-          <ListItem button>
-            <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-          </ListItem>
-        </List>
+    <>
+        <Dialog
+            fullScreen 
+            open={open} 
+            onClose={handleClose} 
+            TransitionComponent={Transition}
+            PaperProps={{
+                style: {backgroundColor: 'black'}
+            }}
+        >
+          <Container className="h-100">
+            <Row className="justify-content-center align-items-center h-100 background-color-form">
+                <RequestWrapFormParent />
+            </Row>
+          </Container>
       </Dialog>
-    </div>
+    </>
   );
 }

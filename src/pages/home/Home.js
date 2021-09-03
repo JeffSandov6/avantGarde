@@ -6,7 +6,7 @@ import Benefits from '../../components/home/benefits/Benefits';
 import Residential from '../../components/home/residential/Residential';
 import Commercial from '../../components/home/commercial/Commercial';
 import FloatingButton from '../../components/common/floatingButton/FloatingButton';
-import RequestWrapForm from '../../components/requestWrapForm/RequestWrapForm';
+import RequestWrapFormDialog from '../../components/requestWrapForm/RequestWrapFormDialog';
 
 class Home extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class Home extends Component {
                     openRequestWrapForm={this.openRequestWrapForm}
                 />
                 {this.state.showRequestWrapForm &&
-                    <RequestWrapForm
+                    <RequestWrapFormDialog
                         closeRequestWrapForm={this.closeRequestWrapForm}
                     />
                 }
