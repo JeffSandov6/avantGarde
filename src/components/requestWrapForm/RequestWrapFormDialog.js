@@ -54,7 +54,9 @@ export default function RequestWrapFormDialog(props) {
         >
           <Container className="h-100">
             <Row className="justify-content-center align-items-center h-100 background-color-form">
-                <RequestWrapFormParent />
+                <RequestWrapFormParent
+                  closeWrapFormDialog={handleClose}
+                />
             </Row>
           </Container>
       </Dialog>
