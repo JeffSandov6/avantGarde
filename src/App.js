@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
       {/* <NavigationResponsive /> */}
-        <FloatingButton />
         <Switch>
           <Route exact path="/">
             <HomeResponsive/>

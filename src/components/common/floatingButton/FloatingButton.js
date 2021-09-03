@@ -7,9 +7,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 
 //TODO: set positioning of fab button on diff web screen sizes
+//TODO: set the background of request a wrap to red, text black or white, cloud to just be an outline of it in black
 
-
-export default function FloatingButton() {
+export default function FloatingButton(props) {
 
 
     const style = {
@@ -18,22 +18,22 @@ export default function FloatingButton() {
         // right: 120,
         // left: 'auto',
         position: 'fixed',
-        // backgroundColor: 'transparent',
-        zIndex: 1000,
+        backgroundColor: 'transparent',
+        zIndex: 5,
 
         top: '9rem',
         right: '3rem',
     };
 
     function onClickButton() {
-        console.log("his");
+        //here the state of showRequestWrapForm should be turned to true
+        props.openRequestWrapForm();
     }
 
     return (
         <div>
             <Fab 
                 style={style}
-                color="transparent"
                 size="large"
                 variant="extended"
                 onClick={onClickButton}
