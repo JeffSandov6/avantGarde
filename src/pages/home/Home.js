@@ -7,6 +7,8 @@ import Residential from '../../components/home/residential/Residential';
 import Commercial from '../../components/home/commercial/Commercial';
 import FloatingButton from '../../components/common/floatingButton/FloatingButton';
 import RequestWrapFormDialog from '../../components/requestWrapForm/RequestWrapFormDialog';
+import Comments from '../../components/home/comments/Comments';
+import Footer from '../../components/home/footer/Footer';
 
 class Home extends Component {
     constructor(props) {
@@ -41,6 +43,8 @@ class Home extends Component {
                 <Benefits />
                 <Residential />
                 <Commercial />
+                <Comments />
+                <Footer/>
             </div>
         )
     }
