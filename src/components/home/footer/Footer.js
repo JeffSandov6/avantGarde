@@ -4,9 +4,9 @@ import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
 import { BsLockFill } from "react-icons/bs";
+import { FaLock } from "react-icons/fa";
 
-import franchise500 from "./Franchise500.png"
-import uvProtectionIcon from './UV-Protection-Icon.png';
+import Franchise500 from "./Franchise500.png"
 
 
 class Footer extends Component {
@@ -16,27 +16,22 @@ class Footer extends Component {
                 <div style={{ height: '10vh' }}></div>
                 <Row className={"no-gutters"}>
                     <Col>
-                        <img
-                            source={require("./Franchise500.png")}
-                            alt="missing"
-                            style={{width: '50%', height: '50%'}}
-                        />
                     </Col>
                     <Col>
                         <FaInstagram size="3em"/>
                         <AiOutlineFacebook size="3em"/>
                     </Col>
                     <Col>
-                        <img
-                            source={franchise500}
+                        {/* <img
+                            src={Franchise500}
                             alt="missing"
-                            style={{width: '10%', height: '10%'}}
-                        />
-                        <BsLockFill size="2em"/>
+                        /> */}
+                        <FaLock size="3em"/>
                         Protected by US Patents
                     </Col>
                     
                 </Row>
+                
             </>
         )
     }
