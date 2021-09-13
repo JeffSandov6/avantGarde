@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Comment, Form, Header } from 'semantic-ui-react'
 import { Row, Col } from 'react-bootstrap';
+import { Rating } from 'react-simple-star-rating';
+
+
+import AddComments from './AddComments';
+import "./Comments.css"
 
 
 
@@ -23,77 +28,102 @@ class Comments extends Component {
                         <Header as='h3' dividing>
                             Comments
                         </Header>
+                        <div className="comment-div">
 
-                        <Comment>
-                        <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
-                        <Comment.Content>
-                            <Comment.Author as='a'>Matt</Comment.Author>
-                            <Comment.Metadata>
-                            <div>Today at 5:42PM</div>
-                            </Comment.Metadata>
-                            <Comment.Text>How artistic!</Comment.Text>
-                            <Comment.Actions>
-                            <Comment.Action>Reply</Comment.Action>
-                            </Comment.Actions>
-                        </Comment.Content>
-                        </Comment>
-
-                        <Comment>
-                        {/* <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' /> */}
-                        <Comment.Content>
-                            <Comment.Author as='a'>Elliot Fu</Comment.Author>
-                            <Comment.Metadata>
-                            <div>Yesterday at 12:30AM</div>
-                            </Comment.Metadata>
-                            <Comment.Text>
-                            <p>This has been very useful for my research. Thanks as well!</p>
-                            </Comment.Text>
-                            <Comment.Actions>
-                            <Comment.Action>Reply</Comment.Action>
-                            </Comment.Actions>
-                        </Comment.Content>
-                        <Comment.Group>
+                        <Row className="justify-content-center comment-row-padding">
                             <Comment>
-                            <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/jenny.jpg' />
+                            <Comment.Content>
+                                <Comment.Author as='a'>Matt</Comment.Author>
+                                <Comment.Metadata>
+                                {/* <div>Today at 5:42PM</div> */}
+                                <Rating 
+                                    ratingValue={5}
+                                    size="15"
+                                />
+                                </Comment.Metadata>
+                                <Comment.Text>How do you want the comments to look? Do you want the stars next to the name and the date in the bottom like this comment?</Comment.Text>
+                                <Comment.Metadata>
+                                <div>Today at 5:42PM</div>
+                                </Comment.Metadata>
+                            </Comment.Content>
+                            </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
+
+                        <Row className="justify-content-center comment-row-padding">
+                            <Comment>
+                            <Comment.Content>
+                                <Comment.Author as='a'>Elliot S</Comment.Author>
+                                <Comment.Metadata>
+                                <div>Yesterday at 12:30AM</div>
+                                <Rating 
+                                    ratingValue={5}
+                                    size="15"
+                                />
+                                </Comment.Metadata>
+                                <Comment.Text>Or do you want the comments to look like this, where the date and the stars are both next to the name?</Comment.Text>
+                            </Comment.Content>
+                            </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
+
+                        <Row className="justify-content-center comment-row-padding">
+                            <Comment>
                             <Comment.Content>
                                 <Comment.Author as='a'>Jenny Hess</Comment.Author>
                                 <Comment.Metadata>
-                                <div>Just now</div>
+                                <div>Yesterday at 12:30AM</div>
                                 </Comment.Metadata>
-                                <Comment.Text>Elliot you are always so right :)</Comment.Text>
-                                <Comment.Actions>
-                                <Comment.Action>Reply</Comment.Action>
-                                </Comment.Actions>
+                                <Comment.Text>Testing a really long comment. Testing a really long comment. Testing a really long comment. Testing a really long comment. Testing a really long comment. Testing a really long comment. Testing a really long comment.</Comment.Text>
                             </Comment.Content>
                             </Comment>
-                        </Comment.Group>
-                        </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
 
-                        <Comment>
-                        <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />
-                        <Comment.Content>
-                            <Comment.Author as='a'>Joe Henderson</Comment.Author>
-                            <Comment.Metadata>
-                            <div>5 days ago</div>
-                            </Comment.Metadata>
-                            <Comment.Text>Dude, this is awesome. Thanks so much</Comment.Text>
-                            <Comment.Actions>
-                            <Comment.Action>Reply</Comment.Action>
-                            </Comment.Actions>
-                        </Comment.Content>
-                        </Comment>
-                        <Form reply>
-                            <Form.TextArea />
-                            <Button content='Add Reply' labelPosition='left' icon='edit' primary />
-                        </Form>
+                        <Row className="justify-content-center comment-row-padding">
+                            <Comment>
+                            <Comment.Content>
+                                <Comment.Author as='a'>Joe Henderson</Comment.Author>
+                                <Comment.Metadata>
+                                <div>5 days ago</div>
+                                </Comment.Metadata>
+                                <Comment.Text>Comment 4</Comment.Text>
+                            </Comment.Content>
+                            </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
+
+                        <Row className="justify-content-center comment-row-padding">
+                            <Comment>
+                            <Comment.Content>
+                                <Comment.Author as='a'>Joe Henderson</Comment.Author>
+                                <Comment.Metadata>
+                                <div>5 days ago</div>
+                                </Comment.Metadata>
+                                <Comment.Text>testing the comment scroll</Comment.Text>
+                            </Comment.Content>
+                            </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
+
+                        <Row className="justify-content-center comment-row-padding">
+                            <Comment>
+                            <Comment.Content>
+                                <Comment.Author as='a'>Joe Henderson</Comment.Author>
+                                <Comment.Metadata>
+                                <div>5 days ago</div>
+                                </Comment.Metadata>
+                                <Comment.Text>testing the comment scroll</Comment.Text>
+                            </Comment.Content>
+                            </Comment>
+                            <div style={{ height: '5px' }}></div>
+                        </Row>
+                        </div>
                     </Comment.Group>
-
+        
                 </Col>
                 <Col>
-                    <Form reply>
-                        <Form.TextArea />
-                        <Button content='Add Reply' labelPosition='left' icon='edit' primary />
-                    </Form>
+                    <AddComments/>
                 </Col>
             </Row>
             </>

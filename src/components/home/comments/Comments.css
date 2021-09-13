@@ -1,0 +1,15 @@
+.left-align-content {
+    float: left;
+}
+
+
+.comment-div {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.comment-row-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+}
