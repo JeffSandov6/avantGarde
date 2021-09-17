@@ -1,3 +1,10 @@
 .image-float-residential {
     float: left;
 }
+
+.residential-text-background {
+    /* this is for background of the text */
+    /* background-color: rgb(231, 231, 231); */
+    /* align-self: flex-start; */
+    font-size: 20px;
+}
