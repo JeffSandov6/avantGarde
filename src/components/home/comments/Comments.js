@@ -19,7 +19,7 @@ class Comments extends Component {
     }
 
     componentDidMount() {
-        this.getUserCommentsFromDB();
+        // this.getUserCommentsFromDB();
     }
 
     async getUserCommentsFromDB() {
