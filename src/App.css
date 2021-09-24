@@ -3,6 +3,13 @@
   background-color: rgb(247, 247, 247);
 }
 
+/* this is for keeping the background still */
+/* .app-background {
+  /* background-attachment: fixed; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

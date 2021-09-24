@@ -3,8 +3,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 import FloatingButton from './components/common/floatingButton/FloatingButton';
-import HomeResponsive from './pages/home/HomeResponsive'
+import HomeResponsive from './pages/home/HomeResponsive';
 import './App.css';
+import diagonalBackground from './diagonalBackground.png';
+import diagonalBackgroundLightRed from './diagonalBackgroundLightRed.jpg';
 
 
 function App() {
