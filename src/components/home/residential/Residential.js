@@ -19,8 +19,6 @@ class Residential extends Component {
     }
 
     isVisible = (isVisible) => {
-        console.log("at is visible");
-        console.log(isVisible);
         this.setState({elementIsVisible: isVisible});
     }
 
@@ -29,24 +27,26 @@ class Residential extends Component {
             <>
             <Row className="justify-content-center align-items-center">
                 <div style={{ height: '10vh' }}></div>
+                <VisibilitySensor
+                    onChange={this.isVisible}
+                >
                 <div>
+                    
                     <Col>
-                        <VisibilitySensor
-                            onChange={this.isVisible}
-                        >
-                            <Fade
+                        
+                            <Slide
                                 in={this.state.elementIsVisible}
-                                timeout={3000}
-                                disableStrictModeCompat={true}
-                                // direction="right"
+                                timeout={2000}
+                                // disableStrictModeCompat={true}
+                                direction="right"
                             >
                                 <img 
                                     className="image-float-residential mr-4"
                                     src={residentialImage} 
                                     width="40%"
                                 />
-                            </Fade>
-                        </VisibilitySensor>
+                            </Slide>
+                        {/* </VisibilitySensor> */}
 
                     </Col>
                     <Col className="justify-content-center">
@@ -62,6 +62,8 @@ class Residential extends Component {
                         </div>
                     </Col>
                 </div>
+                </VisibilitySensor>
+
             </Row>
             </>
         )
