@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { Row, Col, Container } from 'reactstrap';
+import IconButton from '@material-ui/core/IconButton';
+import CancelIcon from '@material-ui/icons/Cancel';
+import Button from '@material-ui/core/Button';
+import {pink} from '@material-ui/core/Colors';
 
 import RequestWrapFormParent from './RequestWrapFormParent';
 import "./RequestWrapForm.css";
@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   dialogBackground: {
       backgroundColor: 'black',
+  },
+  closeButtonStyle: {
+      backgroundColor: 'white',
   }
 }));
 
@@ -52,7 +55,29 @@ export default function RequestWrapFormDialog(props) {
                 style: {backgroundColor: 'black'}
             }}
         >
+        
           <Container className="h-100">
+            <IconButton
+              size="large"
+              style={{
+                // display: 'inline-flex',
+                backgroundColor: 'white',
+                position: 'absolute',
+                right: 30,
+                top: 20,
+              }}
+              onClick={handleClose}
+              sx={{
+                color: 'white',
+              }}
+            >
+              <CancelIcon 
+                // color="primary"
+                style={{
+                  fill: 'blue'
+                }}
+              />
+            </IconButton>
             <Row className="justify-content-center align-items-center h-100 background-color-form">
                 <RequestWrapFormParent
                   closeWrapFormDialog={handleClose}
