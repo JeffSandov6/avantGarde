@@ -1,3 +1,18 @@
 .background-color-form {
     color: white;
 }
+
+/* to change size of radio */
+input[type=radio] {
+    /* transform:scale(1.5); */
+}
+
+
+.radio-button-text {
+    font-size: 20px;
+}
+
+.form-check-inline {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}

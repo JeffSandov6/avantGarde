@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
 //this function is the one that allows you to add a label next to the numbers in the form stepper
 function getSteps() {
-  return ['', '', '', '', ''];
+  return ['Name', 'Reason for Request', 'Method of Contact', 'Address', 'Job Type'];
 }
 
 const requestSuccesfullySentMessage = "Thank you, we will get back to you as soon as possible!";

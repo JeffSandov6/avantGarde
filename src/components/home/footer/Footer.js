@@ -29,7 +29,8 @@ class Footer extends Component {
                         <FaLock size="3em"/>
                         Protected by US Patents
                     </Col>
-                    
+                    <div style={{ height: '45px' }}></div>
+
                 </Row>
                 
             </>

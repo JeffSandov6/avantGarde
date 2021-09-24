@@ -1,8 +1,14 @@
-.logo-top-bottom-margins {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+/* .logo-top-bottom-margins {
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */
 
 .logo-supporting-text {
     color: black;
+}
+
+.contact-us-link {
+    position: absolute;
+    bottom: 10px;
+    font-size: 20px;
 }
