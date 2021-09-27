@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -8,6 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import { Row } from 'reactstrap';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import clsx from 'clsx';
+import Check from '@material-ui/icons/Check';
+import PropTypes from 'prop-types';
+import StepConnector from '@material-ui/core/StepConnector';
+import {QontoConnector, QontoStepIcon} from './RequestWrapFormCustomStepper';
+
+
 
 
 import NameStep from './requestWrapFormSteps/NameStep';
@@ -61,6 +69,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 'auto',
   },
 }));
+
+
 
 //this function is the one that allows you to add a label next to the numbers in the form stepper
 function getSteps() {
@@ -148,16 +158,27 @@ export default function RequestWrapFormParent(props) {
         </Row>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          
           
           return (
-            <Step key={index} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+            <Step key={index}>
+              <StepLabel>{label}</StepLabel>
             </Step>
           );
         })}
+      </Stepper>
+
+      <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
+        {steps.map((label, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            
+            
+            return (
+              <Step key={index} {...stepProps}>
+                <StepLabel {...labelProps} StepIconComponent={QontoStepIcon}>{label}</StepLabel>
+              </Step>
+            );
+          })}
       </Stepper>
 
       <div>
