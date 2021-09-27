@@ -5,7 +5,6 @@ import residentialImage from './Commercial_8.jpeg';
 import '../CommonHomeComponents.css';
 import './Residential.css';
 import { Row, Col } from 'react-bootstrap';
-import Fade from '@material-ui/core/Fade';
 import Slide from '@material-ui/core/Slide';
 
 
@@ -25,15 +24,13 @@ class Residential extends Component {
     render() {
         return (
             <>
-            <Row className="justify-content-center align-items-center">
-                <div style={{ height: '10vh' }}></div>
-                <VisibilitySensor
+            <div style={{ height: '10vh' }}></div>
+            <VisibilitySensor
                     onChange={this.isVisible}
-                >
-                <div>
-                    
-                    <Col>
-                        
+            >
+                <Row className="justify-content-center align-items-center">  
+                
+                    <Col className="d-flex justify-content-center">
                             <Slide
                                 in={this.state.elementIsVisible}
                                 timeout={2000}
@@ -41,15 +38,14 @@ class Residential extends Component {
                                 direction="right"
                             >
                                 <img 
-                                    className="image-float-residential mr-4"
+                                    className="image-float-residential"
                                     src={residentialImage} 
-                                    width="40%"
+                                    width="80%"
                                 />
                             </Slide>
-                        {/* </VisibilitySensor> */}
-
                     </Col>
-                    <Col className="justify-content-center">
+
+                    <Col className="align-self-center">
                         <div className="residential-commercial-headers">Residential</div>
                         <div className="residential-commercial-supporting-text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit risus ut massa ornare pellentesque. Proin id leo id arcu placerat tincidunt.
@@ -61,10 +57,9 @@ class Residential extends Component {
                             Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit risus ut massa ornare pellentesque. Proin id leo id arcu placerat tincidunt.
                         </div>
                     </Col>
-                </div>
-                </VisibilitySensor>
 
-            </Row>
+                </Row>
+            </VisibilitySensor>
             </>
         )
     }
