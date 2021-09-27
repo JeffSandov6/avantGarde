@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -9,10 +9,7 @@ import { Row } from 'reactstrap';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import clsx from 'clsx';
-import Check from '@material-ui/icons/Check';
-import PropTypes from 'prop-types';
-import StepConnector from '@material-ui/core/StepConnector';
+
 import {QontoConnector, QontoStepIcon} from './RequestWrapFormCustomStepper';
 
 
@@ -121,6 +118,12 @@ export default function RequestWrapFormParent(props) {
   //if it is succesful, let the user know that it was succesful and that we will get back to them as soon as possible
   //also, the only button that needs to be shown after that is a 'Close' button
   const handleNext = () => {
+    if(stepIsComplete) {
+      //TODO: add a modal or some red text telling user that this step needs to be completed
+      console.log("step is not complete");
+      return;
+    }
+
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
 
     if(activeStep === steps.length - 1) {
@@ -131,6 +134,34 @@ export default function RequestWrapFormParent(props) {
         }, 5000);
     }
   };
+
+  const stepIsComplete = () => {
+    switch(activeStep) {
+      case 0:
+        if(name === '') {
+          return false;
+        }
+      case 1:
+        if(requestReason === '') {
+          return false;
+        }
+      case 2:
+        if(emailOrPhone === '') {
+          return false;
+        }
+      case 3:
+        if(address === '') {
+          return false;
+        }
+      case 4:
+        if(commercialOrResidential === '') {
+          return false;
+        }
+      default:
+        return true;
+    }
+    return true;
+  }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
