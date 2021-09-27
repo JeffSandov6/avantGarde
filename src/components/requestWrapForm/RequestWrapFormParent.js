@@ -118,7 +118,6 @@ export default function RequestWrapFormParent(props) {
   //if it is succesful, let the user know that it was succesful and that we will get back to them as soon as possible
   //also, the only button that needs to be shown after that is a 'Close' button
   const handleNext = () => {
-    console.log("on handleNext");
     if(!stepIsComplete()) {
       //TODO: add a modal or some red text telling user that this step needs to be completed
       console.log("step is not complete");

@@ -3,11 +3,6 @@ import { FormControl, Form, } from 'react-bootstrap';
 
 
 class AddressStep extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         return (
             <>
