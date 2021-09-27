@@ -8,7 +8,6 @@ import AddComments from './AddComments';
 import "./Comments.css"
 import * as FirebaseUtils from '../../../firebase/FirebaseUtils';
 
-// import 'semantic-ui-css/semantic.min.css';
 
 
 class Comments extends Component {
@@ -20,7 +19,7 @@ class Comments extends Component {
     }
 
     componentDidMount() {
-        this.getUserCommentsFromDB();
+        // this.getUserCommentsFromDB();
     }
 
     async getUserCommentsFromDB() {

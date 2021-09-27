@@ -49,6 +49,7 @@ class Commercial extends Component {
                                 className="image-float-commercial"
                                 src={commercialImage} 
                                 width="80%"
+                                alt="missing"
                             />
                         </Fade>
                     </VisibilitySensor>

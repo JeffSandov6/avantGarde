@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
-import { Comment, CommentMetadata, Header } from 'semantic-ui-react';
-import { FormControl, Form, Row, Col} from 'react-bootstrap';
+import { Header } from 'semantic-ui-react';
+import { FormControl, Form, Row } from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 
 import "./Comments.css";

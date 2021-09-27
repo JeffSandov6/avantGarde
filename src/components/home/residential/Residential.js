@@ -41,6 +41,7 @@ class Residential extends Component {
                                     className="image-float-residential"
                                     src={residentialImage} 
                                     width="80%"
+                                    alt="missing"
                                 />
                             </Slide>
                     </Col>
