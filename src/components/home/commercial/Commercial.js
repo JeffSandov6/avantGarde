@@ -22,27 +22,9 @@ class Commercial extends Component {
     render() {
         return (
             <>
+            <div style={{ height: '10vh '}}></div>
             <Row>
-            <div style={{ height: '10vh' }}></div>
-            <div>
-                <Col>
-                    <VisibilitySensor
-                        onChange={this.isVisible}
-                    >
-                        <Fade
-                                in={this.state.elementIsVisible}
-                                timeout={3000}
-                                disableStrictModeCompat={true}
-                        >
-                            <img 
-                                className="image-float-commercial ml-4"
-                                src={commercialImage} 
-                                width="40%"
-                            />
-                        </Fade>
-                    </VisibilitySensor>
-                </Col>
-                <Col>
+                <Col className="align-self-center">
                     <div className="residential-commercial-headers">Commercial</div>
                     <div className="residential-commercial-supporting-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit risus ut massa ornare pellentesque. Proin id leo id arcu placerat tincidunt.
@@ -54,7 +36,23 @@ class Commercial extends Component {
                         Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit risus ut massa ornare pellentesque. Proin id leo id arcu placerat tincidunt.
                     </div>
                 </Col>
-            </div>
+                <Col className="d-flex justify-content-center">
+                    <VisibilitySensor
+                        onChange={this.isVisible}
+                    >
+                        <Fade
+                                in={this.state.elementIsVisible}
+                                timeout={3000}
+                                disableStrictModeCompat={true}
+                        >
+                            <img 
+                                className="image-float-commercial"
+                                src={commercialImage} 
+                                width="80%"
+                            />
+                        </Fade>
+                    </VisibilitySensor>
+                </Col>
             </Row>
             </>
         )
