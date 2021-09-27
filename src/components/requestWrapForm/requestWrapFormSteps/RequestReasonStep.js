@@ -3,10 +3,6 @@ import { FormControl, Form } from 'react-bootstrap';
 
 
 class RequestReasonStep extends Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

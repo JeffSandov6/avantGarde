@@ -3,10 +3,6 @@ import { FormControl, Form } from 'react-bootstrap';
 
 
 class NameStep extends Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

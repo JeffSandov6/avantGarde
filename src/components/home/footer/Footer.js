@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormControl, Form, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineFacebook } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
