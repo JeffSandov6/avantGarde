@@ -3,14 +3,6 @@ import { FormControl, Form, Row } from 'react-bootstrap';
 
 
 class RequestReasonStep extends Component {
-
-
-    onChange = (e) => {
-        console.log("hi");
-        console.log(e);
-        console.log(e.target.value);
-    }
-
     render() {
         return (
             <>
