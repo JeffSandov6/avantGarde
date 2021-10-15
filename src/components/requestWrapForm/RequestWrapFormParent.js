@@ -191,9 +191,11 @@ export default function RequestWrapFormParent(props) {
     </Backdrop>
 
         <Row className="justify-content-center">
-            <h1>Request a Wrap</h1>
+            <h1>Request an Emergency Wrap</h1>
         </Row>
-      <Stepper activeStep={activeStep}>
+
+        {/* FOR WEB DEV REPO: Below is a regular stepper  */}
+      {/* <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           
           return (
@@ -202,7 +204,7 @@ export default function RequestWrapFormParent(props) {
             </Step>
           );
         })}
-      </Stepper>
+      </Stepper> */}
 
       <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
         {steps.map((label, index) => {
@@ -217,6 +219,9 @@ export default function RequestWrapFormParent(props) {
             );
           })}
       </Stepper>
+
+
+
 
       <div>
           {/* below is whats shown when all steps are completed */}
