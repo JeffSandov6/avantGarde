@@ -30,10 +30,10 @@ export default function AddComments() {
   return (
     <>
         
-        <Header as='h3' dividing>Add a Comment</Header>
+        <Header as='h3' dividing>Add a Review</Header>
         <Form.Group>
             <FormControl
-                placeholder="Add a Comment"
+                placeholder="Add a Review"
                 value={comment}
                 as="textarea"
                 rows={6}
