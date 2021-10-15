@@ -12,7 +12,7 @@ class TopLogo extends Component {
             <>
                 <div className="container">
                     <div style={{height: '10px'}}></div>
-                <Row>
+                <Row className="logo-row">
                     {/* <div style={{ height: '40vh' }}></div> */}
                     <Col className="col-md-3">
                         <div className="contact-us-link">
