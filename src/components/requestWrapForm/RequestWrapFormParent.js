@@ -101,7 +101,12 @@ export default function RequestWrapFormParent(props) {
       case 0:
         return <NameStep name={name} setName={setName}/>;
       case 1:
-        return <RequestReasonStep requestReason={requestReason} setRequestReason={setRequestReason}/>;
+        return <RequestReasonStep 
+            requestReason={requestReason} 
+            setRequestReason={setRequestReason}
+            commercialOrResidential={commercialOrResidential}
+            setCommercialOrResidential={setCommercialOrResidential}
+          />;
       case 2:
         return <EmailPhoneStep emailOrPhone={emailOrPhone} setEmailOrPhone={setEmailOrPhone} clearEmailOrPhoneState={clearEmailOrPhoneState}/>;
       case 3:
@@ -144,7 +149,7 @@ export default function RequestWrapFormParent(props) {
         }
         break;
       case 1:
-        if(requestReason && requestReason.trim()) {
+        if(requestReason && requestReason.trim() && commercialOrResidential && commercialOrResidential.trim()) {
           stepIsComplete = true;
         }
         break;
