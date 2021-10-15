@@ -7,6 +7,8 @@ import { Rating } from 'react-simple-star-rating';
 import AddComments from './AddComments';
 import "./Comments.css"
 import * as FirebaseUtils from '../../../firebase/FirebaseUtils';
+import ModalPopup from '../../common/modal/ModalPopup';
+import * as commentsUtil from "./CommentsUtil";
 
 
 
@@ -15,6 +17,8 @@ class Comments extends Component {
         super(props);
         this.state = {
             userComments: [],
+            showSuccessModal: false,
+            showFailureModal: false,
         }
     }
 
@@ -28,9 +32,47 @@ class Comments extends Component {
         this.setState({userComments: userComments});
     }
 
+    openSuccessModal = () => {
+        this.setState({showSuccessModal: true});
+    }
+
+    closeSuccessModal = () => {
+        this.setState({showSuccessModal: false});
+    }
+
+    openFailureModal = () => {
+        this.setState({showFailureModal: true});
+    }
+
+    closeFailureModal = () => {
+        this.setState({showFailureModal: false});
+    }
+
+    userCommentSubmissionResult = (result) => {
+        if(result === 'Success') {
+            this.openSuccessModal();
+            this.getUserCommentsFromDB();
+        } else {
+            this.openFailureModal();
+        }
+    }
+
     render() {
         return (
             <>
+            <ModalPopup
+                showModal={this.state.showSuccessModal}
+                closeModal={() => this.closeSuccessModal()}
+                modalTitle={commentsUtil.modalPopupSuccessTitle()}
+                modalMessage={commentsUtil.modalPopupReviewSuccessMessage()}
+                />
+            <ModalPopup //this is the Failure popup
+                showModal={this.state.showFailureModal}
+                closeModal={() => this.closeFailureModal()}
+                modalTitle={commentsUtil.modalPopupFailureTitle()}
+                modalMessage={commentsUtil.modalPopupReviewFailureMessage()}
+            />
+            
             <div style={{ height: '10vh' }}></div>
 
             <Row>
@@ -65,7 +107,9 @@ class Comments extends Component {
                     </Comment.Group>
                 </Col>
                 <Col>
-                    <AddComments/>
+                    <AddComments
+                        userCommentSubmissionResult={this.userCommentSubmissionResult}
+                    />
                 </Col>
             </Row>
             </>

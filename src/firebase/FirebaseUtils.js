@@ -4,7 +4,7 @@ import moment from 'moment';
 
 //TODO: add error handling
 //TODO: validation on comment, name, and rating
-export function submitUserComment(userName, rating, comment) {
+export async function submitUserComment(userName, rating, comment) {
     const newCommentKey = push(child(ref(firebaseDB), "comments")).key;
 
     const curDate = moment().format('MMMM Do YYYY');
@@ -17,7 +17,17 @@ export function submitUserComment(userName, rating, comment) {
         date: curDate
     }
     
-    update(ref(firebaseDB), dbCommentEntry);
+    return update(ref(firebaseDB), dbCommentEntry)
+    .then(() => {
+        //if update completes succesfully
+        console.log("Success");
+        return 'Success';
+
+    }).catch((error) => {
+        console.log("Error submitting user comments");
+        console.log(error);
+        return 'Error';
+    });
 }
 
 
@@ -28,6 +38,7 @@ export async function getUserComments() {
     return get(child(dbRef, "comments")).then((snapshot) => {
         if(snapshot.exists()) {
             let snapshotValuesAr = Object.values(snapshot.val());
+            snapshotValuesAr.reverse();
             return snapshotValuesAr;
         } else {
             console.log("snapshot doesn't exist");

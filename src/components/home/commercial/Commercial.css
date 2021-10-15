@@ -1,3 +1,7 @@
 .image-float-commercial {
     float: right;
 }
+
+.commercial-background-color {
+    background-color: #750e1d;
+}

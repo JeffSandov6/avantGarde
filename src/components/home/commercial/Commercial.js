@@ -27,7 +27,7 @@ class Commercial extends Component {
                 <VisibilitySensor
                     onChange={this.isVisible}
                 >
-                    <Row>
+                    <Row className="commercial-background-color">
                         <Col className="align-self-center">
                             <div className="residential-commercial-headers">Commercial</div>
                             <div className="residential-commercial-supporting-text">
