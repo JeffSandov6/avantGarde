@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Fade from '@material-ui/core/Fade';
+// import Fade from '@material-ui/core/Fade';
+import Slide from '@material-ui/core/Slide';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import commercialImage from './Commercial_8.jpeg';
@@ -23,6 +24,9 @@ class Commercial extends Component {
         return (
             <>
             <div style={{ height: '10vh '}}></div>
+            <VisibilitySensor
+                onChange={this.isVisible}
+            >
             <Row>
                 <Col className="align-self-center">
                     <div className="residential-commercial-headers">Commercial</div>
@@ -36,14 +40,11 @@ class Commercial extends Component {
                         Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit risus ut massa ornare pellentesque. Proin id leo id arcu placerat tincidunt.
                     </div>
                 </Col>
-                <Col className="d-flex justify-content-center">
-                    <VisibilitySensor
-                        onChange={this.isVisible}
-                    >
-                        <Fade
-                                in={this.state.elementIsVisible}
-                                timeout={3000}
-                                disableStrictModeCompat={true}
+                <Col className="d-flex justify-content-center">   
+                        <Slide
+                            in={this.state.elementIsVisible}
+                            timeout={2000}
+                            direction="left"
                         >
                             <img 
                                 className="image-float-commercial"
@@ -51,10 +52,26 @@ class Commercial extends Component {
                                 width="80%"
                                 alt="missing"
                             />
-                        </Fade>
-                    </VisibilitySensor>
+                        </Slide>
+
+                        {/* FOR WEB DEV: how to use material ui fade */}
+                        {/* <VisibilitySensor onChange={this.isVisible}>
+                            <Fade
+                                in={this.state.elementIsVisible}
+                                timeout={3000}
+                                disableStrictModeCompat={true}
+                            >
+                                <img 
+                                    className="image-float-commercial"
+                                    src={commercialImage} 
+                                    width="80%"
+                                    alt="missing"
+                                />
+                            </Fade>
+                        </VisibilitySensor> */}
                 </Col>
             </Row>
+            </VisibilitySensor>
             </>
         )
     }
