@@ -6,13 +6,20 @@ import {  Row, Col, InputGroup, FormControl, Form } from 'react-bootstrap';
 class EmailPhoneStep extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            preferredContactMethod: 'Email'
-        }
     }
 
+    componentDidMount() {
+        console.log("on componentDidMount");
+        console.log(this.props.preferredContactMethod);
+    }
+    
+
     onPreferredContactMethodChosen = (e) => {
-        this.setState({preferredContactMethod: e.target.value});
+        console.log("here on preferred");
+        console.log(this.props.preferredContactMethod);
+        console.log("target value is");
+        console.log(e.target.value);
+        this.props.setPreferredContactMethod(e.target.value);
         this.props.clearEmailOrPhoneState();
 
     }
@@ -27,6 +34,7 @@ class EmailPhoneStep extends Component {
                         <Col sm md lg={2}>
                             <Form.Control 
                                 as="select"
+                                value={this.props.preferredContactMethod}
                                 onChange={this.onPreferredContactMethodChosen}
                             >
                                 <option>Email</option>
@@ -34,7 +42,7 @@ class EmailPhoneStep extends Component {
                             </Form.Control>
                         </Col>
                         <Col>
-                            {this.state.preferredContactMethod === 'Email' &&
+                            {this.props.preferredContactMethod === 'Email' &&
                                 <FormControl
                                     placeholder="Please enter your email address"
                                     type="email"
@@ -42,7 +50,7 @@ class EmailPhoneStep extends Component {
                                     onChange={e => this.props.setEmailOrPhone(e.target.value)}
                                 />
                             }
-                            {this.state.preferredContactMethod === 'Phone' &&
+                            {this.props.preferredContactMethod === 'Phone' &&
                                     <FormControl
                                         placeholder="Please enter your phone number"
                                         type="phone-mobile"

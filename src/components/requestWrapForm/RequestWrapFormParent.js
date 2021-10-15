@@ -19,7 +19,7 @@ import NameStep from './requestWrapFormSteps/NameStep';
 import RequestReasonStep from './requestWrapFormSteps/RequestReasonStep';
 import EmailPhoneStep from './requestWrapFormSteps/EmailPhoneStep';
 import AddressStep from './requestWrapFormSteps/AddressStep';
-import CommercialResidentialStep from './requestWrapFormSteps/CommercialResidentialStep';
+import ReviewInfoStep from './requestWrapFormSteps/ReviewInfoStep';
 
 //Question: after all steps are done, what do you want to happen?
 //The way i have it now, or do you want to add a popup saying something like
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
 //this function is the one that allows you to add a label next to the numbers in the form stepper
 function getSteps() {
-  return ['Name', 'Reason for Request', 'Method of Contact', 'Address', 'Job Type'];
+  return ['Name', 'Reason for Request', 'Method of Contact', 'Address', 'Review Info'];
 }
 
 const requestSuccesfullySentMessage = "Thank you, we will get back to you as soon as possible!";
@@ -84,6 +84,7 @@ export default function RequestWrapFormParent(props) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [name, setName] = React.useState("");
   const [requestReason, setRequestReason] = React.useState("");
+  const [preferredContactMethod, setPreferredContactMethod] = React.useState("Email");
   const [emailOrPhone, setEmailOrPhone] = React.useState("");
   const [address, setAddress] = React.useState("");
   const [commercialOrResidential, setCommercialOrResidential] = React.useState("");
@@ -108,11 +109,23 @@ export default function RequestWrapFormParent(props) {
             setCommercialOrResidential={setCommercialOrResidential}
           />;
       case 2:
-        return <EmailPhoneStep emailOrPhone={emailOrPhone} setEmailOrPhone={setEmailOrPhone} clearEmailOrPhoneState={clearEmailOrPhoneState}/>;
+        return <EmailPhoneStep 
+          emailOrPhone={emailOrPhone} 
+          setEmailOrPhone={setEmailOrPhone} 
+          clearEmailOrPhoneState={clearEmailOrPhoneState}
+          preferredContactMethod={preferredContactMethod}
+          setPreferredContactMethod={setPreferredContactMethod}
+        />;
       case 3:
         return <AddressStep address={address} setAddress={setAddress}/>;
       case 4:
-        return <CommercialResidentialStep commercialOrResidential={commercialOrResidential} setCommercialOrResidential={setCommercialOrResidential}/>;
+        return <ReviewInfoStep 
+            name={name}
+            commercialOrResidential={commercialOrResidential}
+            requestReason={requestReason}
+            preferredContactMethod={preferredContactMethod}
+            emailOrPhone={emailOrPhone}
+          />;
       default:
         return 'Unknown step';
     }
@@ -164,9 +177,7 @@ export default function RequestWrapFormParent(props) {
         }
         break;
       case 4:
-        if(commercialOrResidential && commercialOrResidential.trim()) {
-          stepIsComplete = true;
-        }
+        stepIsComplete = true;
         break;
       default:
         break;

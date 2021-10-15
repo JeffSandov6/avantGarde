@@ -44,7 +44,7 @@ class RequestReasonStep extends Component {
                         placeholder="Please enter your reason for requesting a wrap"
                         value={this.props.requestReason}
                         as="textarea"
-                        rows={6}
+                        rows={4}
                         onChange={e => this.props.setRequestReason(e.target.value)}
                     />
                 </Form.Group>
