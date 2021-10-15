@@ -13,7 +13,7 @@ class Benefits extends Component {
     render() {
         return (
             <>
-                <Row className="no-gutters">
+                <Row className="benefits-background-color">
                     <Col>
                         <img
                             src={fireRetardantIcon}

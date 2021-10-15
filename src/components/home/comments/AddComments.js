@@ -12,20 +12,29 @@ import * as FirebaseUtils from '../../../firebase/FirebaseUtils';
 
 //TODO: clear the comment form when done, popup saying success?
 //Do i want to reload the comments from firebase?
-export default function AddComments() {
+export default function AddComments(props) {
   const [rating, setRating] = useState(0) // initial rating value
   const [name, setName] = useState("")
   const [comment, setComment] = useState("")
 
-  // Catch Rating value
   const handleRating = (rate) => {
     setRating(rate)
-    // Some logic
   }
 
-  function submitClicked() {
-      FirebaseUtils.submitUserComment(name, rating, comment);
-  }
+  async function submitClicked() {
+      if(rating === 0 || name === '' || comment === '') {
+          return;
+      }
+
+      let res = await FirebaseUtils.submitUserComment(name, rating, comment);
+      props.userCommentSubmissionResult(res);
+
+      if(res === 'Success') {
+          setRating(0)
+          setName("")
+          setComment("")
+      }
+    }
 
   return (
     <>
