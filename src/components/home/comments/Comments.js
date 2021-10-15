@@ -19,6 +19,7 @@ class Comments extends Component {
     }
 
     componentDidMount() {
+        //TODO: uncomment when the site goes live
         // this.getUserCommentsFromDB();
     }
 
@@ -36,7 +37,7 @@ class Comments extends Component {
                 <Col>
                     <Comment.Group>
                         <Header as='h3' dividing>
-                            Comments
+                            Reviews
                         </Header>
                         <div className="comment-div">
                             {this.state.userComments.map((curComment, index) => (
