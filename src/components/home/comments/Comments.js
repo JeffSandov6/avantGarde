@@ -20,7 +20,7 @@ class Comments extends Component {
 
     componentDidMount() {
         //TODO: uncomment when the site goes live
-        // this.getUserCommentsFromDB();
+        this.getUserCommentsFromDB();
     }
 
     async getUserCommentsFromDB() {
@@ -43,6 +43,7 @@ class Comments extends Component {
                             {this.state.userComments.map((curComment, index) => (
                                 <Row className="justify-content-center comment-row-padding" key={index}>
                                     <Comment>
+                                    <Comment.Avatar src='https://semantic-ui.com/images/avatar2/small/elyse.png'/>
                                     <Comment.Content>
                                         <Comment.Author as='a'>{curComment.name}</Comment.Author>
                                         <Comment.Metadata>
