@@ -1,0 +1,60 @@
+.parallax-image-text-color {
+    color: white;
+}
+
+.parallax-inner-header {
+    font-weight: bold;
+    font-size: 70px;
+}
+
+.parallax-support-text {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.inner-text-mobile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+/* .text-style-mobile {
+    text-align: center;
+} */
+
+@media (min-width: 501px) {
+    .parallax-inner-header-mobile {
+        font-weight: bold;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .parallax-inner-header-mobile {
+        font-weight: bold;
+        font-size: 30px;
+    }
+}
+
+
+@media (min-width: 501px) {
+    .parallax-support-text-mobile {
+        font-weight: bold;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .parallax-support-text-mobile {
+        font-weight: bold;
+        font-size: 15px;
+    }
+}

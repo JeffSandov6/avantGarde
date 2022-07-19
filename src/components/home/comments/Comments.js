@@ -75,7 +75,7 @@ class Comments extends Component {
             
             <div style={{ height: '10vh' }}></div>
 
-            <Row>
+            {/* <Row>
                 <Col>
                     <Comment.Group>
                         <Header as='h3' dividing>
@@ -111,7 +111,7 @@ class Comments extends Component {
                         userCommentSubmissionResult={this.userCommentSubmissionResult}
                     />
                 </Col>
-            </Row>
+            </Row> */}
             </>
         )
     }
